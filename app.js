@@ -1,10 +1,16 @@
 const express = require('express')
+const morgan = require('morgan')
 
 const app = express()
 
 app.set('view engine', 'ejs')
 
 app.listen(3000)
+
+// middleware & static files
+app.use(express.static('public'))
+
+app.use(morgan('dev'))
 
 app.get('/', (req, res) => {
     //res.send('<p>Home Page</p>')
